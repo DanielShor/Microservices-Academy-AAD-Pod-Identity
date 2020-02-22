@@ -1,0 +1,69 @@
+adminsecret: {}
+azureIdentity:
+  clientID: ""
+  enabled: false
+  name: azure-identity
+  namespace: ""
+  resourceID: ""
+  type: 0
+azureIdentityBinding:
+  name: azure-identity-binding
+  selector: demo
+forceNameSpaced: "false"
+fullnameOverride: ""
+image:
+  imagePullPolicy: Always
+  repository: mcr.microsoft.com/k8s/aad-pod-identity
+mic:
+  affinity: {}
+  clientQps: ""
+  createDeleteBatch: ""
+  image: mic
+  immutableUserMSIs: []
+  leaderElection:
+    duration: ""
+    instance: ""
+    name: ""
+    namespace: ""
+  logVerbosity: 0
+  nodeSelector:
+    beta.kubernetes.io/os: linux
+  probePort: ""
+  prometheusPort: ""
+  resources:
+    limits:
+      cpu: 200m
+      memory: 1024Mi
+    requests:
+      cpu: 100m
+      memory: 256Mi
+  syncRetryDuration: ""
+  tag: 1.5.5
+  tolerations: []
+nameOverride: ""
+nmi:
+  affinity: {}
+  blockInstanceMetadata: ""
+  enableScaleFeatures: ""
+  findIdentityRetryIntervalInSeconds: ""
+  image: nmi
+  ipTableUpdateTimeIntervalInSeconds: ""
+  micNamespace: ""
+  nodeSelector:
+    beta.kubernetes.io/os: linux
+  probePort: ""
+  prometheusPort: ""
+  resources:
+    limits:
+      cpu: 200m
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 256Mi
+  retryAttemptsForAssigned: ""
+  retryAttemptsForCreated: ""
+  tag: 1.5.5
+  tolerations: []
+rbac:
+  allowAccessToSecrets: true
+  enabled: true

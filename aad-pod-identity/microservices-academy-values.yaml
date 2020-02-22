@@ -1,0 +1,42 @@
+azureIdentity:
+  enabled: true
+  name: course-identity
+  namespace: "infra"
+  resourceID: "/subscriptions/c5d1c552-a815-4fc8-b12d-ab444e3225b1/resourceGroups/wdatp-k8s-dev-neu-1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/wdatp-k8s-dev-neu-1"
+  clientID: "c45f4cbf-15dc-4e7b-9b82-f7f8e7f702d0"
+  type: 0
+
+azureIdentityBinding:
+  name: course-identity-binding
+  namespace: "infra"
+  selector: course-identity
+
+forceNameSpaced: "True"
+
+mic:
+  image: mic
+  # To make sure mic isn't deleting your cluster identity, you can put here the client id of it. 
+  ####################
+  immutableUserMSIs: c45f4cbf-15dc-4e7b-9b82-f7f8e7f702d0
+  ####################
+  leaderElection:
+    namespace: "infra"
+  nodeSelector:
+    beta.kubernetes.io/os: linux
+    # We deploy mic into master nodes (otherwise it has some issues when you don't install on default namespace)
+    kubernetes.io/role: master
+  tolerations: 
+  # This is to make sure we can schedule this pod to master node
+  - effect: NoSchedule
+    operator: "Equal"
+    value: "true"
+    key: node-role.kubernetes.io/master
+
+nmi:
+  image: nmi
+  micNamespace: "infra"
+  nodeSelector:
+    beta.kubernetes.io/os: linux
+rbac:
+  allowAccessToSecrets: false
+  enabled: true
