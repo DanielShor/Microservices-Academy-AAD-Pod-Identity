@@ -2,13 +2,20 @@ azureIdentity:
   enabled: true
   name: course-identity
   namespace: "infra"
+  # Put here the user identity information 
+  ####################
   resourceID: "/subscriptions/c5d1c552-a815-4fc8-b12d-ab444e3225b1/resourceGroups/wdatp-k8s-dev-neu-1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/wdatp-k8s-dev-neu-1"
   clientID: "c45f4cbf-15dc-4e7b-9b82-f7f8e7f702d0"
+  ####################
   type: 0
 
+# Here we don't have AzureIdentity value, since this is inherited from the azureidentity.name filled above. 
+# If you look at the identities.yaml template, and look for AzureIdentityBinding spec, it will make sense.
 azureIdentityBinding:
   name: course-identity-binding
   namespace: "infra"
+  # This is how we know how to bind the AzureIdentity to a pod. 
+  # The value of 'selector' label is the value of 'aadpodidbinding' pod's label
   selector: course-identity
 
 forceNameSpaced: "True"
