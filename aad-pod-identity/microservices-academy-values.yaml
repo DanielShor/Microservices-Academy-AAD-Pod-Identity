@@ -32,7 +32,7 @@ mic:
     beta.kubernetes.io/os: linux
     # We deploy mic into master nodes (otherwise it has some issues when you don't install on default namespace)
     # kubernetes.io/role: master
-  tolerations: 
+  tolerations: []
   # This is to make sure we can schedule this pod to master node
   # - effect: NoSchedule
   #   operator: "Equal"
