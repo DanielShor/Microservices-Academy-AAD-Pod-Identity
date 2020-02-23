@@ -5,7 +5,7 @@ azureIdentity:
   # Put here the user identity information 
   ####################
   resourceID: "/subscriptions/c5d1c552-a815-4fc8-b12d-ab444e3225b1/resourceGroups/wdatp-k8s-dev-neu-1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/wdatp-k8s-dev-neu-1"
-  clientID: "c45f4cbf-15dc-4e7b-9b82-f7f8e7f702d0"
+  clientID: "c45f4cbf-15dc-4e7b-9b82-12382903"
   ####################
   type: 0
 
