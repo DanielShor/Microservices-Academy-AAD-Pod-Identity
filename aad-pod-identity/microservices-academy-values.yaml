@@ -31,13 +31,13 @@ mic:
   nodeSelector:
     beta.kubernetes.io/os: linux
     # We deploy mic into master nodes (otherwise it has some issues when you don't install on default namespace)
-    kubernetes.io/role: master
+    # kubernetes.io/role: master
   tolerations: 
   # This is to make sure we can schedule this pod to master node
-  - effect: NoSchedule
-    operator: "Equal"
-    value: "true"
-    key: node-role.kubernetes.io/master
+  # - effect: NoSchedule
+  #   operator: "Equal"
+  #   value: "true"
+  #   key: node-role.kubernetes.io/master
 
 nmi:
   image: nmi
